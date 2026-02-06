@@ -1,3 +1,3 @@
-# BugTracker
+# IssuePilot
 BugTracking System  Backend.
 
