@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import api from './auth'
 
 export default function Login({ onLogin, onSwitchToRegister }) {
     const [formData, setFormData] = useState({
@@ -14,7 +15,7 @@ export default function Login({ onLogin, onSwitchToRegister }) {
         setLoading(true)
         setError(null)
         try {
-            const r = await axios.post('http://localhost:8080/api/auth/login', formData)
+            const r = await api.post('/api/auth/login', formData)
             // Assuming r.data is { token, user }
             onLogin(r.data)
         } catch (err) {

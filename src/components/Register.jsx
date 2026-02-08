@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import api from './auth'
 
 export default function Register({ onRegister, onSwitchToLogin }) {
     const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ export default function Register({ onRegister, onSwitchToLogin }) {
         setLoading(true)
         setError(null)
         try {
-            const r = await axios.post('http://localhost:8080/api/auth/register', formData)
+            const r = await api.post('/api/auth/register', formData)
             // Assuming r.data is the token string or success message
             // If it returns token immediately, we can log them in
             onRegister(r.data)
